@@ -153,6 +153,11 @@
   <ItemGroup>
     <ClCompile Include="lab7TreeEXE.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lab7TreeDLL\lab7TreeDLL.vcxproj">
+      <Project>{4b6c17fd-c139-4fb7-bc2b-995f4a480a8c}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
