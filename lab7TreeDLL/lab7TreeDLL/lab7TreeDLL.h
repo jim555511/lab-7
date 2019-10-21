@@ -11,10 +11,10 @@
 #endif
 
 // This class is exported from the dll
-class LAB7TREEDLL_API Clab7TreeDLL {
+class LAB7TREEDLL_API BinaryTree {
 public:
-	Clab7TreeDLL(void);
-	// TODO: add your methods here.
+private:
+
 };
 
 
