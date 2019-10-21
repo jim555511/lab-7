@@ -17,9 +17,6 @@ private:
 
 };
 
-//Jakob Was Here
-// rofl
-
 extern LAB7TREEDLL_API int nlab7TreeDLL;
 
 LAB7TREEDLL_API int fnlab7TreeDLL(void);
