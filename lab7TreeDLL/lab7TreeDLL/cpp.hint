@@ -1,0 +1,2 @@
+#define LAB7TREEDLL_API __declspec(dllexport)
+#define LAB7TREEDLL_API __declspec(dllimport)
