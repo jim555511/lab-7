@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab7TreeDLL", "lab7TreeDLL\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab7TreeEXE", "lab7TreeEXE\lab7TreeEXE.vcxproj", "{1D2B8572-DFF4-4019-BF40-81CC74725284}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "UnitTests\UnitTests.vcxproj", "{B8C6AE34-3840-411D-8431-DFC047709B09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{1D2B8572-DFF4-4019-BF40-81CC74725284}.Release|x64.Build.0 = Release|x64
 		{1D2B8572-DFF4-4019-BF40-81CC74725284}.Release|x86.ActiveCfg = Release|Win32
 		{1D2B8572-DFF4-4019-BF40-81CC74725284}.Release|x86.Build.0 = Release|Win32
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Debug|x64.ActiveCfg = Debug|x64
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Debug|x64.Build.0 = Debug|x64
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Debug|x86.ActiveCfg = Debug|Win32
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Debug|x86.Build.0 = Debug|Win32
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Release|x64.ActiveCfg = Release|x64
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Release|x64.Build.0 = Release|x64
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Release|x86.ActiveCfg = Release|Win32
+		{B8C6AE34-3840-411D-8431-DFC047709B09}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
