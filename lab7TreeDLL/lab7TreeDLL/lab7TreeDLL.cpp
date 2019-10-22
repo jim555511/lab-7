@@ -52,7 +52,7 @@ void Node::setVal(string Val) {
 }
 
 BinaryTree::BinaryTree() {
-
+	top = nullptr;
 }
 
 BinaryTree::BinaryTree(Node* Top) {
