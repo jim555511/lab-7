@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "..\..\lab7TreeDLL\lab7TreeDLL\lab7TreeDLL.h"
 
 int main()
 {
