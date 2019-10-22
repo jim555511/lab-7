@@ -3,7 +3,6 @@
 
 #include "framework.h"
 #include "lab7TreeDLL.h"
-#include <string>
 using namespace std;
 
 Node::Node() {
@@ -76,12 +75,14 @@ int BinaryTree::Size() {
 	return 0;
 }
 
-Node* BinaryTree::getAllAscending() {
-	return nullptr;
+vector<Node*> BinaryTree::getAllAscending() {
+	vector<Node*> heyBois;
+	return heyBois;
 }
 
-Node* BinaryTree::getAllDescending() {
-	return nullptr;
+vector<Node*> BinaryTree::getAllDescending() {
+	vector<Node*> byeBois;
+	return byeBois;
 }
 
 bool BinaryTree::EmptyTree() {

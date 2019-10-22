@@ -10,6 +10,7 @@
 #define LAB7TREEDLL_API __declspec(dllimport)
 #endif
 #include <string>
+#include <vector>
 
 //Basic node class for tree with all basic utilities
 class LAB7TREEDLL_API Node {
@@ -46,8 +47,8 @@ public:
 	bool insert(std::string valToInsert);
 	Node * Find(std::string valToFind);
 	int Size();
-	Node* getAllAscending();
-	Node* getAllDescending();
+	std::vector<Node*> getAllAscending();
+	std::vector<Node*> getAllDescending();
 	bool EmptyTree();
 	bool remove(std::string valToRemove);
 
