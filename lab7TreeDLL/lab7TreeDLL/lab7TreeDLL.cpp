@@ -136,13 +136,28 @@ vector<Node*> BinaryTree::getAllDescending() {
 }
 
 bool BinaryTree::emptyTree() {
-	return false;
+	emptyTreeHelper(top);
+	top = NULL; //Need to set top to null to avoid read access violations
+	return true;
+}
+
+//Code found from: https://www.geeksforgeeks.org/write-a-c-program-to-delete-a-tree/
+void BinaryTree::emptyTreeHelper(Node* nodeToFree) {
+	if (nodeToFree == NULL) {
+		return;
+	}
+	emptyTreeHelper(nodeToFree->getLeft());
+	emptyTreeHelper(nodeToFree->getRight());
+
+	delete nodeToFree;
+
+
 }
 
 //For node with no children, remove
 //For node with one child, remove and then bridge the gap between the node behind and the node infront
 //For node with two children, search down the nodes righthand subtree
-//Find the nodes smallest child in the righthand subtre, then replace their values and delete the smallest Node
+//Find the nodes smallest child in the righthand subtree, then replace their values and delete the smallest Node
 bool BinaryTree::remove(string valToRemove) {
 	return false;
 }

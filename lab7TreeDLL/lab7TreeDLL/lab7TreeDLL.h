@@ -49,6 +49,7 @@ public:
 
 private:
 	int sizeHelper(Node* starter);
+	void emptyTreeHelper(Node* nodeToFree);
 	Node* top; //our top node
 };
 
