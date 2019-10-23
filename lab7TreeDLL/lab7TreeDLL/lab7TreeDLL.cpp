@@ -78,7 +78,7 @@ bool BinaryTree::insert(string valToInsert) {
 			}
 		}
 		if (beforeTemp == NULL) {
-			beforeTemp = addNode;
+			top = addNode;
 			return true;
 		}
 		else if (beforeTemp->getVal().compare(addNode->getVal()) < 0) {
@@ -92,6 +92,19 @@ bool BinaryTree::insert(string valToInsert) {
 }
 
 Node* BinaryTree::Find(string valToFind) {
+	Node* temp = top;
+	while(temp != NULL){
+		if (temp->getVal() == valToFind) {
+			return temp;
+		}
+		else if (temp->getVal().compare(valToFind) < 0) {
+			temp = temp->getRight();
+		}
+		else {
+			temp = temp->getLeft();
+		}
+	}
+	return nullptr;
 }
 
 int BinaryTree::Size() {

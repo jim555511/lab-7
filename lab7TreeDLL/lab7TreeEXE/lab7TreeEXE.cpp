@@ -8,6 +8,12 @@ int main()
 {
 	BinaryTree myTree;
 	myTree.insert("Hey bois");
+	myTree.insert("go bois");
+	myTree.insert("bye bois");
+	if (myTree.Find("Hey bois") != nullptr) {
+		std::cout << "We did it bois";
+	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
