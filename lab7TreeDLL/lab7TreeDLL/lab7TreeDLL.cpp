@@ -65,6 +65,7 @@ BinaryTree::~BinaryTree() {
 
 //Equal leaves will be put on the left, mainly itterates through the tree looking for our leaf
 //If the tree is empty then assign top to new leaf
+//Compares via string compare
 bool BinaryTree::insert(string valToInsert) {
 	Node* addNode = new Node(valToInsert);
 		Node* temp = top;
@@ -108,9 +109,20 @@ Node* BinaryTree::find(string valToFind) {
 	return nullptr;
 }
 
-//Recursive function that checks every node
 int BinaryTree::size() {
-	return 0;
+	int size = sizeHelper(top);
+	return size;
+}
+
+//Code taken from here: https://www.geeksforgeeks.org/write-a-c-program-to-calculate-size-of-a-tree/
+//and changed to fit our needs
+int BinaryTree::sizeHelper(Node* starter) {
+	if (starter == NULL) {
+		return 0;
+	}
+	else {
+		return 1 + sizeHelper(starter->getRight()) + sizeHelper(starter->getLeft());
+	}
 }
 
 vector<Node*> BinaryTree::getAllAscending() {
@@ -127,6 +139,10 @@ bool BinaryTree::emptyTree() {
 	return false;
 }
 
+//For node with no children, remove
+//For node with one child, remove and then bridge the gap between the node behind and the node infront
+//For node with two children, search down the nodes righthand subtree
+//Find the nodes smallest child in the righthand subtre, then replace their values and delete the smallest Node
 bool BinaryTree::remove(string valToRemove) {
 	return false;
 }

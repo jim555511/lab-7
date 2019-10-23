@@ -7,6 +7,11 @@
 int main()
 {
 	BinaryTree myTree;
+	myTree.insert("Star");
+	myTree.insert("planet");
+	myTree.insert("moon");
+	std::cout<< myTree.size();
+	
 
 }
 

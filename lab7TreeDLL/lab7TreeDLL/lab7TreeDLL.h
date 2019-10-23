@@ -48,6 +48,7 @@ public:
 	bool remove(std::string valToRemove);
 
 private:
+	int sizeHelper(Node* starter);
 	Node* top; //our top node
 };
 
