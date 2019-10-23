@@ -63,12 +63,35 @@ BinaryTree::~BinaryTree() {
 
 }
 
+//Equal leaves will be put on the left, mainly itterates through the tree looking for our leaf
 bool BinaryTree::insert(string valToInsert) {
-	return false;
+	Node* addNode = new Node(valToInsert);
+		Node* temp = top;
+		Node* beforeTemp = NULL;
+		while (temp != NULL) {
+			beforeTemp = temp;
+			if (temp->getVal().compare(addNode->getVal()) < 0) {
+				temp = temp->getRight();
+			}
+			else {
+				temp = temp->getLeft();
+			}
+		}
+		if (beforeTemp == NULL) {
+			beforeTemp = addNode;
+			return true;
+		}
+		else if (beforeTemp->getVal().compare(addNode->getVal()) < 0) {
+			beforeTemp->setRight(addNode);
+			return true;
+		}
+		else {
+			beforeTemp->setLeft(addNode);
+			return true;
+		}
 }
 
 Node* BinaryTree::Find(string valToFind) {
-	return nullptr;
 }
 
 int BinaryTree::Size() {

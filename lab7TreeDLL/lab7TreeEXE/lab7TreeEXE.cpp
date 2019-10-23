@@ -6,7 +6,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	BinaryTree myTree;
+	myTree.insert("Hey bois");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
