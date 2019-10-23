@@ -64,6 +64,7 @@ BinaryTree::~BinaryTree() {
 }
 
 //Equal leaves will be put on the left, mainly itterates through the tree looking for our leaf
+//If the tree is empty then assign top to new leaf
 bool BinaryTree::insert(string valToInsert) {
 	Node* addNode = new Node(valToInsert);
 		Node* temp = top;
@@ -91,7 +92,7 @@ bool BinaryTree::insert(string valToInsert) {
 		}
 }
 
-Node* BinaryTree::Find(string valToFind) {
+Node* BinaryTree::find(string valToFind) {
 	Node* temp = top;
 	while(temp != NULL){
 		if (temp->getVal() == valToFind) {
@@ -107,7 +108,8 @@ Node* BinaryTree::Find(string valToFind) {
 	return nullptr;
 }
 
-int BinaryTree::Size() {
+//Recursive function that checks every node
+int BinaryTree::size() {
 	return 0;
 }
 
@@ -121,7 +123,7 @@ vector<Node*> BinaryTree::getAllDescending() {
 	return byeBois;
 }
 
-bool BinaryTree::EmptyTree() {
+bool BinaryTree::emptyTree() {
 	return false;
 }
 

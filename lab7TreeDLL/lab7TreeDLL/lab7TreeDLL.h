@@ -40,11 +40,11 @@ public:
 	BinaryTree(); //default constructor
 	~BinaryTree();
 	bool insert(std::string valToInsert);
-	Node * Find(std::string valToFind);
-	int Size();
+	Node * find(std::string valToFind);
+	int size();
 	std::vector<Node*> getAllAscending();
 	std::vector<Node*> getAllDescending();
-	bool EmptyTree();
+	bool emptyTree();
 	bool remove(std::string valToRemove);
 
 private:

@@ -7,12 +7,6 @@
 int main()
 {
 	BinaryTree myTree;
-	myTree.insert("Hey bois");
-	myTree.insert("go bois");
-	myTree.insert("bye bois");
-	if (myTree.Find("Hey bois") != nullptr) {
-		std::cout << "We did it bois";
-	}
 
 }
 
