@@ -11,6 +11,7 @@ int main()
 	std::cout<< myTree.size() <<std::endl;
 	myTree.emptyTree();
 	std::cout << myTree.size();
+	myTree.~BinaryTree();
 
 
 }

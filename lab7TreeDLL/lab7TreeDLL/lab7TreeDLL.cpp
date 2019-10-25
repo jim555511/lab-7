@@ -11,8 +11,9 @@ Node::Node() {
 	right = nullptr;
 }
 
-//Empty for now until we've used it a bit
+//Since children are mainly controlled by the tree we may not need this
 Node::~Node() {
+
 }
 
 Node::Node(string Val) {
@@ -59,8 +60,9 @@ BinaryTree::BinaryTree(Node* Top) {
 	top = Top;
 }
 
+//basically just call our empty tree method to destroy the tree
 BinaryTree::~BinaryTree() {
-
+	emptyTree();
 }
 
 //Equal leaves will be put on the left, mainly itterates through the tree looking for our leaf
@@ -109,6 +111,7 @@ Node* BinaryTree::find(string valToFind) {
 	return nullptr;
 }
 
+//makes it so that we can get the size without knowing the root
 int BinaryTree::size() {
 	int size = sizeHelper(top);
 	return size;
@@ -142,6 +145,7 @@ bool BinaryTree::emptyTree() {
 }
 
 //Code found from: https://www.geeksforgeeks.org/write-a-c-program-to-delete-a-tree/
+//Recursively deletes each left and right node of every branch
 void BinaryTree::emptyTreeHelper(Node* nodeToFree) {
 	if (nodeToFree == NULL) {
 		return;
@@ -154,10 +158,12 @@ void BinaryTree::emptyTreeHelper(Node* nodeToFree) {
 
 }
 
-//For node with no children, remove
-//For node with one child, remove and then bridge the gap between the node behind and the node infront
+//For node with no children, remove and do nothing pretty much
+//For node with one child, remove and then bridge the gap between the node behind and the child
 //For node with two children, search down the nodes righthand subtree
-//Find the nodes smallest child in the righthand subtree, then replace their values and delete the smallest Node
+//Find the nodes smallest child in the righthand subtree, 
+//then replace their values and delete the node on with no children
+//TODO: delete comment block and replace with a description
 bool BinaryTree::remove(string valToRemove) {
 	return false;
 }
