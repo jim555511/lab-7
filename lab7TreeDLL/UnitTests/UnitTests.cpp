@@ -37,5 +37,24 @@ namespace UnitTests
 			testTree.insert("test7");
 			Assert::AreEqual(7, testTree.size());
 		}
+
+		TEST_METHOD(DeleteTree) {
+			BinaryTree testTree;
+			testTree.insert("test1");
+			testTree.insert("test2");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("test5");
+			testTree.insert("test6");
+			Assert::AreEqual(6, testTree.size());
+			testTree.emptyTree();
+			Assert::AreEqual(0, testTree.size());
+		}
+
+		TEST_METHOD(DeleteNothing) {
+			BinaryTree testTree;
+			testTree.emptyTree();
+			Assert::AreEqual(0, testTree.size());
+		}
 	};
 }
