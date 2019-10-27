@@ -56,5 +56,89 @@ namespace UnitTests
 			testTree.emptyTree();
 			Assert::AreEqual(0, testTree.size());
 		}
+
+		TEST_METHOD(RemoveNoChildren)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			Assert::AreEqual(8, testTree.size());
+			testTree.remove("test4");
+
+			//Make sure that something was removed
+			Assert::AreEqual(7, testTree.size());
+			//Make sure that "test4" is not in tree
+			Assert::IsNull(testTree.find("test4"));
+		}
+
+		TEST_METHOD(RemoveOneChildren)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			Assert::AreEqual(8, testTree.size());
+			testTree.remove("te");
+
+			//Make sure that something was removed
+			Assert::AreEqual(7, testTree.size());
+			//Make sure that "test4" is not in tree
+			Assert::IsNull(testTree.find("te"));
+		}
+
+		TEST_METHOD(RemoveManyChildren)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			Assert::AreEqual(8, testTree.size());
+			testTree.remove("test2");
+
+			//Make sure that something was removed
+			Assert::AreEqual(7, testTree.size());
+			//Make sure that "test4" is not in tree
+			Assert::IsNull(testTree.find("test2"));
+		}
+
+		TEST_METHOD(RemoveInvalidKey)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			Assert::AreEqual(8, testTree.size());
+			testTree.remove("apple");
+
+			//Make sure that something was removed
+			Assert::AreEqual(8, testTree.size());
+			//Make sure that "test4" is not in tree
+			Assert::IsNull(testTree.find("apple"));
+		}
 	};
 }

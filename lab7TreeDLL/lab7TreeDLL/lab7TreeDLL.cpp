@@ -52,6 +52,60 @@ void Node::setVal(string Val) {
 	val = Val;
 }
 
+//Deletes a node based on given key
+//Is a Node class function since this recursive method needs write access
+//to left and right.
+Node* Node::deleteNodeHelper(Node* root, string key)
+{
+	if (root == NULL)
+	{
+		return root;
+	}
+
+	//Go to the right
+	if (root->getVal().compare(key) < 0)
+	{
+		root->right = deleteNodeHelper(root->right, key);
+	}
+	else if (root->getVal().compare(key) > 0)
+	{
+		root->left = deleteNodeHelper(root->left, key);
+	}
+	else
+	{
+		if (root->left == NULL)
+		{
+			Node* temp = root->right;
+			delete root;
+			return temp;
+		}
+		else if (root->right == NULL)
+		{
+			Node* temp = root->left;
+			delete root;
+			return temp;
+		}
+
+		Node* temp = minValueNode(root->right);
+		root->val = temp->val;
+		root->right = deleteNodeHelper(root->right, temp->val);
+	}
+	return root;
+}
+
+//Finds the minimum valued Node by finding the left most leaf
+Node* Node::minValueNode(Node* root)
+{
+	Node* Current = root;
+
+	while ((Current != NULL) && (Current->getLeft() != NULL))
+	{
+		Current = Current->getLeft();
+	}
+
+	return Current;
+}
+
 BinaryTree::BinaryTree() {
 	top = nullptr;
 }
@@ -158,14 +212,17 @@ void BinaryTree::emptyTreeHelper(Node* nodeToFree) {
 
 }
 
-//For node with no children, remove and do nothing pretty much
-//For node with one child, remove and then bridge the gap between the node behind and the child
-//For node with two children, search down the nodes righthand subtree
-//Find the nodes smallest child in the righthand subtree, 
-//then replace their values and delete the node on with no children
-//TODO: delete comment block and replace with a description
+
+//Code from https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
+//Check validity of key then proceeds to start to remove the node
 bool BinaryTree::remove(string valToRemove) {
-	return false;
+	if (this->find(valToRemove) == NULL)
+	{
+		return false;
+	}
+	//Call the helper function.
+	top = top->deleteNodeHelper(top, valToRemove);		
+	return true;
 }
 
 

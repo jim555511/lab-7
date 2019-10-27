@@ -25,6 +25,9 @@ public:
 	Node* getLeft();
 	Node* getRight();
 
+	Node* deleteNodeHelper(Node* root, std::string key);
+	Node* minValueNode(Node* root);
+
 	virtual ~Node();
 
 };
@@ -50,6 +53,9 @@ public:
 private:
 	int sizeHelper(Node* starter);
 	void emptyTreeHelper(Node* nodeToFree);
+	//Node* deleteNodeHelper(Node* root, std::string key);
+	/*Node* minValueNode(Node* root);*/
+
 	Node* top; //our top node
 };
 
