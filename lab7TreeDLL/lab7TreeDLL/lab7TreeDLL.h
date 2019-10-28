@@ -53,6 +53,7 @@ public:
 private:
 	int sizeHelper(Node* starter);
 	void emptyTreeHelper(Node* nodeToFree);
+	void printInorderAscendingHelper(Node* node, std::vector<Node*> list);
 	//Node* deleteNodeHelper(Node* root, std::string key);
 	/*Node* minValueNode(Node* root);*/
 

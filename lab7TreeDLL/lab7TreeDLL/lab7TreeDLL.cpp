@@ -184,7 +184,18 @@ int BinaryTree::sizeHelper(Node* starter) {
 
 vector<Node*> BinaryTree::getAllAscending() {
 	vector<Node*> heyBois;
+	printInorderAscendingHelper(top->getLeft(), heyBois);
 	return heyBois;
+}
+
+void BinaryTree::printInorderAscendingHelper(Node* node, vector<Node*> list)
+{
+	if (node != NULL)
+	{
+		printInorderAscendingHelper(node->getLeft(), list);
+		list.push_back(node);
+		printInorderAscendingHelper(node->getRight(), list);
+	}
 }
 
 vector<Node*> BinaryTree::getAllDescending() {

@@ -140,5 +140,20 @@ namespace UnitTests
 			//Make sure that "test4" is not in tree
 			Assert::IsNull(testTree.find("apple"));
 		}
+
+		TEST_METHOD(GetAscending)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+
+		}
 	};
 }
