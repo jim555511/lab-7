@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "lab7TreeDLL.h"
+#include <iostream>
 using namespace std;
 
 Node::Node() {
@@ -147,6 +148,20 @@ bool BinaryTree::insert(string valToInsert) {
 			beforeTemp->setLeft(addNode);
 			return true;
 		}
+}
+void BinaryTree::printTree() {
+	vector<Node*> ascending = this->getAllAscending();
+	std::cout << "PRINTING ASCENDING:" << endl ;
+	for (int i = 0; i < ascending.size(); i++) {
+		std::cout << ascending.at(i)->getVal() << endl;
+	}
+	std::cout<< endl;
+	vector<Node*> descending = this->getAllDescending();
+	std::cout << "PRINTING DESCENDING:" << endl ;
+	for (int i = 0; i < ascending.size(); i++) {
+		std::cout << descending.at(i)->getVal() << endl;
+	}
+	
 }
 
 Node* BinaryTree::find(string valToFind) {

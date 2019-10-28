@@ -24,6 +24,7 @@ public:
 	std::string getVal();
 	Node* getLeft();
 	Node* getRight();
+	
 
 	Node* deleteNodeHelper(Node* root, std::string key);
 	Node* minValueNode(Node* root);
@@ -43,6 +44,7 @@ public:
 	BinaryTree(); //default constructor
 	~BinaryTree();
 	bool insert(std::string valToInsert);
+	void printTree();
 	Node * find(std::string valToFind);
 	int size();
 	std::vector<Node*> getAllAscending();
