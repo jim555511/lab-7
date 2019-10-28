@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "..\..\lab7TreeDLL\lab7TreeDLL\lab7TreeDLL.h"
+#include <vector>
+#include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -143,6 +145,7 @@ namespace UnitTests
 
 		TEST_METHOD(GetAscending)
 		{
+			//Assign
 			BinaryTree testTree;
 			testTree.insert("test");
 			testTree.insert("test2");
@@ -153,7 +156,53 @@ namespace UnitTests
 			testTree.insert("te");
 			testTree.insert("t");
 
+			std::vector<Node*> givenVec;
+			std::vector<Node*> expectedVec;
+			expectedVec.push_back(testTree.find("t"));
+			expectedVec.push_back(testTree.find("te"));
+			expectedVec.push_back(testTree.find("tes"));
+			expectedVec.push_back(testTree.find("test"));
+			expectedVec.push_back(testTree.find("test1"));
+			expectedVec.push_back(testTree.find("test2"));
+			expectedVec.push_back(testTree.find("test3"));
+			expectedVec.push_back(testTree.find("test4"));
 
+			//Act
+			givenVec = testTree.getAllAscending();
+
+			//Assert
+			Assert::IsTrue(givenVec == expectedVec);
+		}
+
+		TEST_METHOD(GetDescending)
+		{
+			//Assign
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			std::vector<Node*> givenVec;
+			std::vector<Node*> expectedVec;
+			expectedVec.push_back(testTree.find("test4"));
+			expectedVec.push_back(testTree.find("test3"));
+			expectedVec.push_back(testTree.find("test2"));
+			expectedVec.push_back(testTree.find("test1"));
+			expectedVec.push_back(testTree.find("test"));
+			expectedVec.push_back(testTree.find("tes"));
+			expectedVec.push_back(testTree.find("te"));
+			expectedVec.push_back(testTree.find("t"));
+
+			//Act
+			givenVec = testTree.getAllDescending();
+
+			//Assert
+			Assert::IsTrue(givenVec == expectedVec);
 		}
 	};
 }

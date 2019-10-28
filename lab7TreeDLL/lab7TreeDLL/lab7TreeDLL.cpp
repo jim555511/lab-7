@@ -184,23 +184,42 @@ int BinaryTree::sizeHelper(Node* starter) {
 
 vector<Node*> BinaryTree::getAllAscending() {
 	vector<Node*> heyBois;
-	printInorderAscendingHelper(top->getLeft(), heyBois);
+	heyBois = printInorderAscendingHelper(top->getLeft(), heyBois);
+	heyBois.push_back(top);
+	heyBois = printInorderAscendingHelper(top->getRight(), heyBois);
 	return heyBois;
 }
 
-void BinaryTree::printInorderAscendingHelper(Node* node, vector<Node*> list)
+vector<Node*> BinaryTree::printInorderAscendingHelper(Node* node, vector<Node*> list)
 {
 	if (node != NULL)
 	{
-		printInorderAscendingHelper(node->getLeft(), list);
+		list = printInorderAscendingHelper(node->getLeft(), list);
 		list.push_back(node);
-		printInorderAscendingHelper(node->getRight(), list);
+		list = printInorderAscendingHelper(node->getRight(), list);
+		return list;
 	}
+	return list;
 }
 
 vector<Node*> BinaryTree::getAllDescending() {
 	vector<Node*> byeBois;
+	byeBois = printInorderDescendingHelper(top->getRight(), byeBois);
+	byeBois.push_back(top);
+	byeBois = printInorderDescendingHelper(top->getLeft(), byeBois);
 	return byeBois;
+}
+
+vector<Node*> BinaryTree::printInorderDescendingHelper(Node* node, vector<Node*> list)
+{
+	if (node != NULL)
+	{
+		list = printInorderDescendingHelper(node->getRight(), list);
+		list.push_back(node);
+		list = printInorderDescendingHelper(node->getLeft(), list);
+		return list;
+	}
+	return list;
 }
 
 bool BinaryTree::emptyTree() {
