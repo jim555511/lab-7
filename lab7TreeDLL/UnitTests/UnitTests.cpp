@@ -12,6 +12,12 @@ namespace UnitTests
 	{
 	public:
 		//Insert tests also test find
+		TEST_METHOD(ConstructorNoArguements)
+		{
+			BinaryTree testTree = BinaryTree();
+
+			Assert::IsNotNull(&testTree);
+		}
 		TEST_METHOD(InsertTest1)
 		{
 			BinaryTree testTree;
@@ -143,6 +149,39 @@ namespace UnitTests
 			Assert::IsNull(testTree.find("apple"));
 		}
 
+		TEST_METHOD(FindValid)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+			
+			Node expectedNode = Node("t");
+			Node* expectedNodePointer = &expectedNode;
+			Node* givenNodePointer = testTree.find("t");
+
+			Assert::IsTrue(givenNodePointer->getVal() == expectedNodePointer->getVal());
+		}
+
+		TEST_METHOD(FindInvalid)
+		{
+			BinaryTree testTree;
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			Assert::IsNull(testTree.find("Apple"));
+		}
 		TEST_METHOD(GetAscending)
 		{
 			//Assign
@@ -203,6 +242,36 @@ namespace UnitTests
 
 			//Assert
 			Assert::IsTrue(givenVec == expectedVec);
+		}
+
+		TEST_METHOD(SizeTest)
+		{
+			BinaryTree testTree;
+			int size;
+
+			testTree.insert("test");
+			testTree.insert("test2");
+			testTree.insert("tes");
+			testTree.insert("test1");
+			testTree.insert("test3");
+			testTree.insert("test4");
+			testTree.insert("te");
+			testTree.insert("t");
+
+			
+			size = testTree.size();
+			Assert::AreEqual(8, size);
+
+			testTree.remove("test");
+			testTree.remove("te");
+			size = testTree.size();
+			Assert::AreEqual(6, size);
+
+			testTree.insert("ahead");
+			testTree.insert("beatboxing");
+			testTree.insert("shadowboxing");
+			size = testTree.size();
+			Assert::AreEqual(9, size);
 		}
 	};
 }
